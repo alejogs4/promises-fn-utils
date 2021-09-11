@@ -10,9 +10,9 @@
     "test:watch": "jest --watch",
     "build": "tsc",
     "develop": "tsc --watch",
-    "lint": "eslint '.src/**/*.{ts}' --quiet --fix",
+    "lint": "eslint '.src/**/*.ts' --quiet --fix",
     "lint:commit": "lint-staged",
-    "format": "prettier --write './src/**/*.{ts}'",
+    "format": "prettier --write './src/**/*.ts'",
     "prepare": "husky install"
   },
   "repository": {
@@ -51,7 +51,7 @@
     "typescript": "^4.4.3"
   },
   "lint-staged": {
-    "./src/**/*.{ts}": [
+    "./src/**/*.ts": [
       "npm run format",
       "npm run lint"
     ]
