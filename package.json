@@ -10,7 +10,7 @@
     "test:watch": "jest --watch",
     "build": "tsc",
     "develop": "tsc --watch",
-    "lint": "eslint '.src/**/*.ts' --quiet --fix",
+    "lint": "eslint './src/**/*.ts' --quiet --fix",
     "lint:commit": "lint-staged",
     "format": "prettier --write './src/**/*.ts'",
     "prepare": "husky install"
