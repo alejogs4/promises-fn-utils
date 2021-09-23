@@ -1,1 +1,0 @@
-export { createBatchedPromise } from './batching';
