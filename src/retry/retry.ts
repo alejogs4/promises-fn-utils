@@ -1,4 +1,5 @@
 import { FunctionPromiseIdentity, PromiseFn, PromiseLikeReturnType } from '../types';
+import { wait } from './retryUtils';
 
 type RetryPolicyOption<ErrorObject> = {
   retries: number;
@@ -6,8 +7,6 @@ type RetryPolicyOption<ErrorObject> = {
   retryFactor?: number;
   shouldRetry?: (error: ErrorObject) => boolean;
 };
-
-const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function createRetryPolicy<ErrorObject>(retryPolicyOptions: RetryPolicyOption<ErrorObject>) {
   const { retries, retryTime, retryFactor = 2, shouldRetry = () => true } = retryPolicyOptions;
@@ -22,7 +21,7 @@ function createRetryPolicy<ErrorObject>(retryPolicyOptions: RetryPolicyOption<Er
           const result = await fn(...args);
           return result;
         } catch (error) {
-          if (shouldRetry(error) && currentRetries + 1 <= retries) {
+          if (shouldRetry(error as ErrorObject) && currentRetries + 1 <= retries) {
             currentRetries++;
 
             await wait(currentRetryTime);
