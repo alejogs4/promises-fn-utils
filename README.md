@@ -30,6 +30,6 @@ const secondPost =  await cachedGetPostByID(1) // this post will not be retrieve
 ```
 #### Cache setup
 | Name        | Optional           | Default  | Description  |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:| -----:| -----:|
 |  ttl     			| true 				| None | Time after which cache will be cleared, specified in milliseconds |
 | maxEntries      | true      | 15  | Maximum amount of different parameters that can be stored in the cache before being cleared |
