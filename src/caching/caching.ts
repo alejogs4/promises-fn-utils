@@ -5,7 +5,7 @@ type CacheOptions = {
   maxEntries?: number;
 };
 
-function createCache(options: CacheOptions) {
+function createCache(options: CacheOptions = {}) {
   const { ttl, maxEntries = 15 } = options;
   return function wrapPromiseWithCache<Fn extends PromiseFn>(fn: Fn): FunctionPromiseIdentity<Fn> {
     type FunctionReturnType = PromiseLikeReturnType<Fn>;
