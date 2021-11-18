@@ -12,12 +12,8 @@ jobs:
         run: npm install
       - name: Lint
         run: npm run lint
-      - uses: actions/upload-artifact@v2
       - name: Test
         run: npm run test:coverage
-        with:
-          name: coverage-artifacts
-          path: coverage
       - name: Type checking
         run: npm run build
       - name: npm login
