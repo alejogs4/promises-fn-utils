@@ -1,0 +1,28 @@
+name: fn-utils-publish
+on:
+  push:
+    branch:
+      - main
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        uses: actions/upload-artifact@v2
+        run: npm run test:coverage
+        with:
+          name: coverage-artifacts
+          path: coverage
+      - name: Type checking
+        run: npm run build
+      - name: npm login
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
+        run: npm set //registry.npmjs.org/:_authToken "$NPM_AUTH_TOKEN"
+      - name: npm publish
+        run: npm publish
