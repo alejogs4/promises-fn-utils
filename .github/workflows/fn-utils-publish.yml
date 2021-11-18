@@ -1,7 +1,7 @@
 name: fn-utils-publish
 on:
   push:
-    branch:
+    branches:
       - main
 jobs:
   code-quality:
