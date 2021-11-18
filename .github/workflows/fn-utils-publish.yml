@@ -12,7 +12,7 @@ jobs:
         run: npm install
       - name: Lint
         run: npm run lint
-      - uses: uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
       - name: Test
         run: npm run test:coverage
         with:
