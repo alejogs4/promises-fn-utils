@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "build": "tsc",
+    "build": "tsc && tsc --build tsconfig.esm.json",
     "develop": "tsc --watch",
     "lint": "eslint './src/**/*.ts' --quiet --fix",
     "lint:commit": "lint-staged",
@@ -26,6 +26,8 @@
     "caching",
     "batching",
     "retries",
+    "queue",
+    "once",
     "decorators"
   ],
   "author": "Alejandro Garcia Serna <alejogs4@gmail.com>",
