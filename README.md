@@ -62,7 +62,7 @@ const getPostByIDWithRetries = applyRetryPolicy(getPostByID)
 await getPostByIDWithRetries(42)
 // First attempt delay: 200ms
 // Second attempt delay: 800ms
-// Third attempt delay: 2400ms
+// Third attempt delay: 3200ms
 ```
 
 Sometimes and based on our needs some retries make not sense, in order to customize if an attempt is necessary you can passed `shouldRetry` option
